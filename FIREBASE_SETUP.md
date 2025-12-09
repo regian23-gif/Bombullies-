@@ -16,7 +16,7 @@ The following secrets need to be added to your GitHub repository:
 4. **FIREBASE_STORAGE_BUCKET** - Firebase Storage Bucket
 5. **FIREBASE_MESSAGING_SENDER_ID** - Firebase Cloud Messaging Sender ID
 6. **FIREBASE_APP_ID** - Firebase App ID
-7. **FIREBASE_MEASUREMENT_ID** - Firebase Analytics Measurement ID (optional)
+7. **FIREBASE_MEASUREMENT_ID** - Firebase Analytics Measurement ID (optional, only required if Google Analytics is enabled)
 
 ## How to Get Firebase Configuration Values
 

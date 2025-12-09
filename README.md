@@ -31,7 +31,7 @@ This project uses Firebase for backend services. To set up Firebase secrets for 
 ## 📚 Documentation
 
 - [Firebase Setup Guide](FIREBASE_SETUP.md) - Complete guide for configuring Firebase secrets
-- [Firebase Config Template](firebase-config.template.json) - Template for local configuration
+- [Firebase Config Template](firebase-config.template.json) - JSON template with placeholder values for Firebase configuration
 
 ## 🔒 Security
 
