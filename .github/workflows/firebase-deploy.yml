@@ -1,0 +1,78 @@
+name: Firebase Deploy Example
+
+# This workflow demonstrates how to use Firebase secrets stored in GitHub Secrets
+# You can customize this workflow based on your deployment needs
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Create Firebase Configuration
+        run: |
+          # Create firebase-config.json from GitHub Secrets
+          cat > firebase-config.json << EOF
+          {
+            "apiKey": "${{ secrets.FIREBASE_API_KEY }}",
+            "authDomain": "${{ secrets.FIREBASE_AUTH_DOMAIN }}",
+            "projectId": "${{ secrets.FIREBASE_PROJECT_ID }}",
+            "storageBucket": "${{ secrets.FIREBASE_STORAGE_BUCKET }}",
+            "messagingSenderId": "${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}",
+            "appId": "${{ secrets.FIREBASE_APP_ID }}",
+            "measurementId": "${{ secrets.FIREBASE_MEASUREMENT_ID }}"
+          }
+          EOF
+          echo "✅ Firebase configuration file created"
+      
+      - name: Validate Firebase Configuration
+        run: |
+          # Check that all required fields are present
+          if grep -q "YOUR_" firebase-config.json; then
+            echo "❌ Error: Firebase configuration contains placeholder values"
+            echo "Please configure your Firebase secrets in GitHub repository settings"
+            exit 1
+          fi
+          echo "✅ Firebase configuration validated"
+      
+      # Example: Install dependencies
+      # - name: Install dependencies
+      #   run: npm install
+      
+      # Example: Build your application
+      # - name: Build application
+      #   run: npm run build
+      #   env:
+      #     FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+      #     FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
+      #     FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+      #     FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
+      #     FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
+      #     FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+      #     FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
+      
+      # Example: Deploy to Firebase Hosting
+      # - name: Deploy to Firebase
+      #   uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     repoToken: '${{ secrets.GITHUB_TOKEN }}'
+      #     firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+      #     channelId: live
+      #     projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
+      
+      - name: Deployment Complete
+        run: |
+          echo "🎉 Deployment workflow completed successfully"
+          echo "Note: Uncomment the deployment steps above to enable actual deployment"
