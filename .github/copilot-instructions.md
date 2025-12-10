@@ -14,8 +14,9 @@ This is a documentation-focused repository for Bombullies, a mobile application 
 ```
 .
 ├── .github/
-│   └── workflows/          # GitHub Actions workflows
-│       └── firebase-deploy.yml
+│   ├── workflows/          # GitHub Actions workflows
+│   │   └── firebase-deploy.yml
+│   └── copilot-instructions.md
 ├── FIREBASE_SETUP.md       # Detailed Firebase configuration guide
 ├── QUICK_REFERENCE.md      # Quick setup reference for Firebase secrets
 ├── GOOGLE_PLAY_SIGNED_BUNDLE_GUIDE.md  # Android App Bundle signing guide
