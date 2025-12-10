@@ -49,6 +49,10 @@ This project uses Firebase for backend services. To set up Firebase secrets for 
 
 Firebase deployment is automated through GitHub Actions. See the example workflow at `.github/workflows/firebase-deploy.yml`.
 
+### Preview Deployment
+
+🌐 **Live Preview**: [https://preview-jn5ghvwy--bullies-kennel-midgard.deploypad.app/](https://preview-jn5ghvwy--bullies-kennel-midgard.deploypad.app/)
+
 ## 📖 Additional Resources
 
 - [Firebase Documentation](https://firebase.google.com/docs)
