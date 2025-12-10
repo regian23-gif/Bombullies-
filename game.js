@@ -42,9 +42,9 @@ class Game {
         this.player = null;
         this.bombs = [];
         this.explosions = [];
-        this.enemies = [];
         this.powerups = [];
         this.keys = {};
+        this.lastFrameTime = Date.now();
         
         this.initializeGrid();
         this.initializePlayer();
@@ -123,6 +123,7 @@ class Game {
 
     startGame() {
         this.state = GAME_STATE.PLAYING;
+        this.lastFrameTime = Date.now();
         document.getElementById('startButton').disabled = true;
         document.getElementById('pauseButton').disabled = false;
         document.getElementById('gameOverModal').classList.add('hidden');
@@ -135,6 +136,7 @@ class Game {
             document.getElementById('pauseButton').textContent = 'Resume';
         } else if (this.state === GAME_STATE.PAUSED) {
             this.state = GAME_STATE.PLAYING;
+            this.lastFrameTime = Date.now(); // Reset frame time to avoid jump
             document.getElementById('pauseButton').textContent = 'Pause';
             this.gameLoop();
         }
@@ -148,6 +150,7 @@ class Game {
         this.bombs = [];
         this.explosions = [];
         this.powerups = [];
+        this.lastFrameTime = Date.now();
         this.initializeGrid();
         this.initializePlayer();
         this.updateUI();
@@ -231,11 +234,12 @@ class Game {
             }
         }
 
-        // Create explosion effect
+        // Create explosion effect with timestamp
         explosionCells.forEach(([x, y]) => {
             this.explosions.push({
                 x, y,
-                timer: CONFIG.EXPLOSION_DURATION
+                startTime: Date.now(),
+                duration: CONFIG.EXPLOSION_DURATION
             });
 
             // Check if player is hit
@@ -243,13 +247,6 @@ class Game {
                 this.playerHit();
             }
         });
-
-        // Remove explosions after duration
-        setTimeout(() => {
-            this.explosions = this.explosions.filter(e => 
-                !explosionCells.some(([x, y]) => e.x === x && e.y === y)
-            );
-        }, CONFIG.EXPLOSION_DURATION);
     }
 
     playerHit() {
@@ -273,13 +270,19 @@ class Game {
         document.getElementById('pauseButton').disabled = true;
     }
 
-    update() {
+    update(deltaTime) {
         if (this.state !== GAME_STATE.PLAYING) return;
 
-        // Update player movement
+        // Clean up expired explosions
+        const currentTime = Date.now();
+        this.explosions = this.explosions.filter(e => 
+            currentTime - e.startTime < e.duration
+        );
+
+        // Update player movement with deltaTime
         let newX = this.player.x;
         let newY = this.player.y;
-        const speed = this.player.speed / CONFIG.FPS;
+        const speed = (this.player.speed / 1000) * deltaTime; // Convert to per-millisecond
 
         if (this.keys['ArrowUp'] || this.keys['w']) newY -= speed;
         if (this.keys['ArrowDown'] || this.keys['s']) newY += speed;
@@ -480,7 +483,11 @@ class Game {
 
     gameLoop() {
         if (this.state === GAME_STATE.PLAYING) {
-            this.update();
+            const currentTime = Date.now();
+            const deltaTime = currentTime - this.lastFrameTime;
+            this.lastFrameTime = currentTime;
+            
+            this.update(deltaTime);
             this.render();
             requestAnimationFrame(() => this.gameLoop());
         } else if (this.state === GAME_STATE.PAUSED) {
