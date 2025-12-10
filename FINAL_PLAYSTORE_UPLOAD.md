@@ -190,7 +190,7 @@ What's New:
 
 **Example:**
 ```
-Version 1.2.0 - March 2024
+Version 1.2.0
 
 New in this update:
 • Added new battle arena mode
