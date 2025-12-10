@@ -93,7 +93,7 @@ Each guide should include:
 
 ### When Updating Play Store Guides
 - Keep information current with Google Play Console interface
-- Include screenshots references where helpful
+- Include references to screenshots where helpful
 - Update version numbers and requirements
 - Link to official Google Play documentation
 
