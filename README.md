@@ -30,8 +30,14 @@ This project uses Firebase for backend services. To set up Firebase secrets for 
 
 ## 📚 Documentation
 
+### Firebase Setup
 - [Firebase Setup Guide](FIREBASE_SETUP.md) - Complete guide for configuring Firebase secrets
 - [Firebase Config Template](firebase-config.template.json) - JSON template with placeholder values for Firebase configuration
+
+### Google Play Store Publishing
+- [Google Play Signed Bundle Guide](GOOGLE_PLAY_SIGNED_BUNDLE_GUIDE.md) - How to generate signed Android App Bundles (.aab)
+- [Play Store Listing Guide](PLAY_STORE_LISTING.md) - Creating your Play Store listing with descriptions, screenshots, and assets
+- [Final Play Store Upload Guide](FINAL_PLAYSTORE_UPLOAD.md) - Step-by-step upload process and post-launch checklist
 
 ## 🔒 Security
 
