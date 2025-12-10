@@ -25,6 +25,26 @@ A classic Bomberman-style game built with HTML5 Canvas and JavaScript, configure
 - Destructible walls
 - Bomb chain reactions
 
+## 🚀 Quick Start
+
+### Option 1: Direct Browser (Simplest)
+1. Download or clone this repository
+2. Open `index.html` directly in your web browser
+3. Click "Start Game" and enjoy!
+
+### Option 2: Local Server (Recommended for development)
+```bash
+# Using Python 3
+python3 -m http.server 8080
+
+# Or using Node.js
+npx http-server -p 8080
+
+# Or using PHP
+php -S localhost:8080
+```
+Then navigate to `http://localhost:8080` in your browser.
+
 ## 🔥 Firebase Setup
 
 This project uses Firebase for backend services. To set up Firebase secrets for GitHub Actions and local development, please follow the comprehensive guide in [FIREBASE_SETUP.md](FIREBASE_SETUP.md).
@@ -53,7 +73,9 @@ This project uses Firebase for backend services. To set up Firebase secrets for 
 
 ## 📚 Documentation
 
+- [Game Documentation](GAME_DOCUMENTATION.md) - Complete guide to game mechanics, controls, and technical details
 - [Firebase Setup Guide](FIREBASE_SETUP.md) - Complete guide for configuring Firebase secrets
+- [Quick Reference](QUICK_REFERENCE.md) - Quick setup guide for Firebase secrets
 - [Firebase Config Template](firebase-config.template.json) - JSON template with placeholder values for Firebase configuration
 
 ## 🔒 Security

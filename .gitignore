@@ -6,6 +6,9 @@ firestore-debug.log
 ui-debug.log
 .firebase/
 
+# Test scripts
+test-game.sh
+
 # Environment variables
 .env
 .env.local
