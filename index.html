@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bombullies - Bomberman Style Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💣 Bombullies</h1>
+            <p>Place bombs, destroy walls, and survive!</p>
+        </header>
+        
+        <div class="game-info">
+            <div class="info-item">
+                <span class="label">Score:</span>
+                <span id="score">0</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Lives:</span>
+                <span id="lives">3</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Level:</span>
+                <span id="level">1</span>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <div class="controls">
+            <h3>Controls:</h3>
+            <div class="control-row">
+                <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> - Move
+            </div>
+            <div class="control-row">
+                <kbd>Space</kbd> - Place Bomb
+            </div>
+            <div class="control-row">
+                <button id="startButton" class="btn">Start Game</button>
+                <button id="pauseButton" class="btn" disabled>Pause</button>
+                <button id="resetButton" class="btn">Reset</button>
+            </div>
+        </div>
+
+        <div class="power-ups-info">
+            <h3>Power-ups:</h3>
+            <ul>
+                <li>⚡ Speed Boost - Move faster</li>
+                <li>💥 Bomb Range - Larger explosions</li>
+                <li>🔢 Extra Bomb - Place more bombs</li>
+            </ul>
+        </div>
+
+        <div id="gameOverModal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="gameOverTitle">Game Over!</h2>
+                <p id="gameOverMessage">Your score: <span id="finalScore">0</span></p>
+                <button id="restartButton" class="btn btn-large">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

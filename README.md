@@ -1,6 +1,29 @@
-# Bombullies-
+# Bombullies 💣
 
-A project configured with Firebase integration.
+A classic Bomberman-style game built with HTML5 Canvas and JavaScript, configured with Firebase integration for future multiplayer features.
+
+## 🎮 How to Play
+
+1. Open `index.html` in a web browser
+2. Click "Start Game" to begin
+3. Use arrow keys (↑↓←→) to move your character
+4. Press Space to place bombs
+5. Destroy breakable walls to clear the path and earn points
+6. Collect power-ups:
+   - ⚡ Speed Boost - Move faster
+   - 💥 Bomb Range - Larger explosions
+   - 🔢 Extra Bomb - Place more bombs simultaneously
+7. Avoid your own explosions or you'll lose a life!
+
+## 🎯 Game Features
+
+- Classic Bomberman-style gameplay
+- Grid-based movement and bombing system
+- Multiple power-ups to collect
+- Score tracking and lives system
+- Responsive controls (keyboard)
+- Destructible walls
+- Bomb chain reactions
 
 ## 🔥 Firebase Setup
 
