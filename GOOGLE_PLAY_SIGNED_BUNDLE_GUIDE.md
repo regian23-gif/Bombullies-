@@ -176,7 +176,7 @@ The signed AAB will be created in `app/release/app-release.aab`
 ### Using Command Line with Environment Variables
 
 ```bash
-export KEYSTORE_PATH="/path/to/keystore.jks"
+export KEYSTORE_PATH="$HOME/keystores/keystore.jks"
 export KEYSTORE_PASSWORD="your_keystore_password"
 export KEY_ALIAS="your_key_alias"
 export KEY_PASSWORD="your_key_password"

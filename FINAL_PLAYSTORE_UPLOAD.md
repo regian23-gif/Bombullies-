@@ -512,11 +512,17 @@ Track these metrics in Play Console:
 - [Play Console Twitter](https://twitter.com/GooglePlayDev)
 - [Google I/O](https://events.google.com/io/)
 
-## Congratulations!
+## Next Steps
 
-You've successfully uploaded your app to Google Play Store! 🎉
+You've completed the upload process! Your app is now submitted for review. 🎉
 
-Remember:
+While you wait for Google's review and approval:
+- Monitor your app's review status in Play Console
+- Respond promptly to any review questions
+- Prepare for post-launch monitoring
+- Set up alerts for crashes and user reviews
+
+Once approved:
 - Monitor your app's performance regularly
 - Respond to user feedback
 - Release updates to fix issues and add features
