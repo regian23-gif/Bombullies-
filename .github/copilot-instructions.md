@@ -171,4 +171,4 @@ Use consistent terminology:
 - "GitHub Actions workflow" (not "GitHub workflow" alone)
 - "Google Play Store" or "Play Store" (not "Google Store")
 - "Android App Bundle" or "AAB" (not "APK bundle")
-- "repository" (not "repo" in formal documentation)
+- "repository" (not "repo" in formal documentation) 
